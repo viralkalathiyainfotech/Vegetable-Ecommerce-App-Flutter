@@ -43,4 +43,15 @@ class StringApp {
   static String alreadyAccount = "Already have an account? ";
   static String verifyYourMobileNo =
       "Please enter it to verify your Mobile No.";
+  static String topCategories = "Top Categories";
+  static String viewAll = "View All";
+  static String gardenFresh = "Garden Fresh";
+  static String seasonalSelections = "Seasonal Selections";
+  static String specialOffer = "Special Offer ";
+  static String vegetables = "Vegetables";
+  static String leafy = "Leafy";
+  static String seasonal = "Seasonal";
+  static String hydroponic ="Hydroponic";
+  static String organic  = "Certified Organic";
+  static String root  = "Root";
 }

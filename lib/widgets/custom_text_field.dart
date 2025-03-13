@@ -106,3 +106,75 @@ class _CustomTextFieldState extends State<CustomTextField> {
     );
   }
 }
+class SearchTextField extends StatefulWidget {
+  const SearchTextField(
+      {super.key,
+        required this.controller,
+        required this.hintText,
+        this.labelText,
+        this.prefix,
+        this.readOnly = false,
+        this.showPassword = false,
+        this.suffix,
+        this.textInputType,
+        this.focusNode,
+        this.search});
+
+  final TextEditingController controller;
+  final String hintText;
+  final String? labelText;
+  final bool? readOnly;
+  final bool? showPassword;
+  final Widget? prefix;
+  final Widget? suffix;
+  final TextInputType? textInputType;
+  final FocusNode? focusNode;
+  final ValueChanged? search;
+
+  @override
+  State<SearchTextField> createState() => _SearchTextFieldState();
+}
+
+class _SearchTextFieldState extends State<SearchTextField> {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: ResponsiveDesign.height(44, context),
+      padding:
+      ResponsiveDesign.only(context,top: 4, bottom: 4),
+      decoration: BoxDecoration(
+          color: white,
+          borderRadius: BorderRadius.circular(5),
+      ),
+      child: TextFormField(
+        onChanged: widget.search,
+        focusNode: widget.focusNode,
+        style: TextStyle(
+            fontFamily: StringApp.inter,
+            fontSize: 13,
+            fontWeight: FontWeight.w500,
+            color: black),
+        controller: widget.controller,
+        autofocus: false,
+        keyboardType: widget.textInputType,
+        cursorColor: green,
+        readOnly: widget.readOnly ?? false,
+        obscureText: widget.showPassword ?? false,
+        decoration: InputDecoration(
+            contentPadding: ResponsiveDesign.only(context,bottom:12,top:3),
+            alignLabelWithHint: true,
+            hintStyle: TextStyle(
+                fontFamily: StringApp.inter,
+                color: gray.withOpacity(0.7),
+                fontWeight: FontWeight.w500,
+                fontSize: 13),
+            border: InputBorder.none,
+            focusedBorder: InputBorder.none,
+            hintText: widget.hintText,
+            labelText: widget.labelText,
+            prefixIcon: widget.prefix,
+            suffixIcon: widget.suffix),
+      ),
+    );
+  }
+}

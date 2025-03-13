@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:persistent_bottom_nav_bar_v2/persistent_bottom_nav_bar_v2.dart';
 import 'package:provider/provider.dart';
+import 'package:veg_e_commerce/components/app_string.dart';
 import 'package:veg_e_commerce/components/image_app.dart';
 import 'package:veg_e_commerce/screen/cart/cart_screen.dart';
 import 'package:veg_e_commerce/screen/category/category_screen.dart';
@@ -40,34 +41,46 @@ class _CrystalNavBarState extends State<CrystalNavBar>
             PersistentTabConfig(
               screen: const HomeScreen(),
               item: ItemConfig(
-                inactiveIcon: SvgPicture.asset(ImageApp.home, color: gray),
-                icon: SvgPicture.asset(ImageApp.home, color: buttonColor2),
+                textStyle: TextStyle(height: 0, fontSize: 13),
+                activeForegroundColor: buttonColor2,
+                title: 'Home',
+                inactiveIcon: SvgPicture.asset(ImageApp.home),
+                icon: SvgPicture.asset(ImageApp.homeActive),
               ),
             ),
             PersistentTabConfig(
               screen: const CategoryScreen(),
               item: ItemConfig(
-                inactiveIcon: SvgPicture.asset(ImageApp.category, color: gray),
-                icon: SvgPicture.asset(ImageApp.category, color: buttonColor2),
+                textStyle: TextStyle(height: 0, fontSize: 13),
+                activeForegroundColor: buttonColor2,
+                title: 'Category',
+                inactiveIcon: SvgPicture.asset(ImageApp.category),
+                icon: SvgPicture.asset(ImageApp.categoryActive),
               ),
             ),
             PersistentTabConfig(
               screen: const CartScreen(),
               item: ItemConfig(
-                inactiveIcon: SvgPicture.asset(ImageApp.cart, color: gray),
-                icon: SvgPicture.asset(ImageApp.cart, color: buttonColor2),
+                textStyle: TextStyle(height: 0, fontSize: 13),
+                activeForegroundColor: buttonColor2,
+                title: 'Cart',
+                inactiveIcon: SvgPicture.asset(ImageApp.cart),
+                icon: SvgPicture.asset(ImageApp.cartActive),
               ),
             ),
             PersistentTabConfig(
               screen: const ProfileScreen(),
               item: ItemConfig(
-                inactiveIcon: SvgPicture.asset(ImageApp.profile, color: gray),
-                icon: SvgPicture.asset(ImageApp.profile, color: buttonColor2),
+                textStyle: TextStyle(height: 0, fontSize: 13),
+                activeForegroundColor: buttonColor2,
+                title: 'Profile',
+                inactiveIcon: SvgPicture.asset(ImageApp.profile),
+                icon: SvgPicture.asset(ImageApp.profileActive),
               ),
             ),
           ],
           navBarBuilder:
-              (navBarConfig) => Style3BottomNavBar(
+              (navBarConfig) => Style6BottomNavBar(
                 navBarDecoration: NavBarDecoration(),
                 navBarConfig: navBarConfig,
               ),
