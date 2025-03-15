@@ -11,6 +11,8 @@ import 'package:veg_e_commerce/widgets/custom_text_field.dart';
 import 'package:veg_e_commerce/widgets/home_lists.dart';
 import 'package:veg_e_commerce/widgets/types_of_Row.dart';
 
+import '../../routes/navigation.dart';
+
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
@@ -51,7 +53,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                     SafeArea(
                       child: Padding(
-                       padding: ResponsiveDesign.horizontal(20, context),
+                        padding: ResponsiveDesign.horizontal(20, context),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -111,15 +113,52 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                     ),
                     Padding(
-                      padding: ResponsiveDesign.fromLTRB(20, 0, 20, 35, context),
-                      child: SearchTextField(
-                        focusNode: home.searchFocus,
-                        controller: home.searchController,
-                        hintText: 'Search for Vegetables...',
-                        search: (value) {},
-                        prefix: Padding(
-                          padding: ResponsiveDesign.all(9, context),
-                          child: SvgPicture.asset(ImageApp.icSearch),
+                      padding: ResponsiveDesign.fromLTRB(
+                        20,
+                        0,
+                        20,
+                        35,
+                        context,
+                      ),
+                      child: InkWell(
+                        onTap: () {
+                          Provider.of<NavigationProvider>(
+                            context,
+                            listen: false,
+                          ).changeRoute('/home/search', context);
+                        },
+                        child: Container(
+                          padding: ResponsiveDesign.fromLTRB(
+                            15,
+                            12,
+                            15,
+                            12,
+                            context,
+                          ),
+                          decoration: BoxDecoration(
+                            color: white,
+                            borderRadius: BorderRadius.circular(5),
+                          ),
+                          child: Row(
+                            children: [
+                              SvgPicture.asset(ImageApp.icSearch),
+                              Padding(
+                                padding: ResponsiveDesign.only(
+                                  context,
+                                  left: 10,
+                                ),
+                                child: Text(
+                                  "Search for Vegetables...",
+                                  style: TextStyle(
+                                    fontFamily: StringApp.inter,
+                                    color: gray.withOpacity(0.7),
+                                    fontWeight: FontWeight.w500,
+                                    fontSize: 13,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                     ),
@@ -129,8 +168,9 @@ class _HomeScreenState extends State<HomeScreen> {
                   child: SingleChildScrollView(
                     physics: BouncingScrollPhysics(),
                     child: Stack(
+                      alignment: Alignment.bottomCenter,
                       children: [
-                        Image.asset(ImageApp.homeBg),
+                        Image.asset(ImageApp.homeBg, fit: BoxFit.fill),
                         Column(
                           children: [
                             SizedBox(
@@ -140,12 +180,42 @@ class _HomeScreenState extends State<HomeScreen> {
                             SizedBox(
                               height: ResponsiveDesign.height(20, context),
                             ),
-                            HomeLists(homeProvider:home),
+                            HomeLists(homeProvider: home),
                             SizedBox(
                               height: ResponsiveDesign.height(30, context),
                             ),
                             TypesOfRow(text: StringApp.gardenFresh),
-
+                            SizedBox(
+                              height: ResponsiveDesign.height(20, context),
+                            ),
+                            ProductList(homeProvider: home),
+                            SizedBox(
+                              height: ResponsiveDesign.height(30, context),
+                            ),
+                            BannerList(homeProvider: home),
+                            SizedBox(
+                              height: ResponsiveDesign.height(30, context),
+                            ),
+                            TypesOfRow(text: StringApp.seasonalSelections),
+                            SizedBox(
+                              height: ResponsiveDesign.height(20, context),
+                            ),
+                            SeasonalList(homeProvider: home),
+                            SizedBox(
+                              height: ResponsiveDesign.height(30, context),
+                            ),
+                            TypesOfRow(text: StringApp.specialOffer),
+                            SizedBox(
+                              height: ResponsiveDesign.height(20, context),
+                            ),
+                            OfferView(),
+                            SizedBox(
+                              height: ResponsiveDesign.height(20, context),
+                            ),
+                            GridViewProduct(homeProvider: home),
+                            SizedBox(
+                              height: ResponsiveDesign.height(80, context),
+                            ),
                           ],
                         ),
                       ],

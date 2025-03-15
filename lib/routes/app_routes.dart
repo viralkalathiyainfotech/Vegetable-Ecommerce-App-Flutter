@@ -6,6 +6,7 @@ import 'package:veg_e_commerce/screen/auth/login/reset_password.dart';
 import 'package:veg_e_commerce/screen/auth/register/otp_screen.dart';
 import 'package:veg_e_commerce/screen/auth/register/register_screen.dart';
 import 'package:veg_e_commerce/screen/boarding/boarding_screen.dart';
+import 'package:veg_e_commerce/utils/search_screen.dart';
 import '../screen/auth/login/verify_otp_screen.dart';
 import '../screen/cart/cart_screen.dart';
 import '../screen/category/category_screen.dart';
@@ -26,5 +27,6 @@ class AppRoutes {
     '/category/category': (context) => CategoryScreen(),
     '/cart/cart': (context) => CartScreen(),
     '/profile/profile': (context) => ProfileScreen(),
+    '/home/search': (context) => SearchScreen(),
   };
 }

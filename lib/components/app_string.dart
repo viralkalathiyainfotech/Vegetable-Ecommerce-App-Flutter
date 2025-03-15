@@ -54,4 +54,6 @@ class StringApp {
   static String hydroponic ="Hydroponic";
   static String organic  = "Certified Organic";
   static String root  = "Root";
+  static String add = "ADD";
+  static String orderNow = "Order Now";
 }
